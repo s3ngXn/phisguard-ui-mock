@@ -1,0 +1,68 @@
+name: Deploy PhishGuard UI Mock to GitHub Pages
+
+on:
+  # Allow manual trigger from the Actions tab in phisguard-ui-mock repo
+  workflow_dispatch:
+
+  # Also auto-trigger on a schedule (optional – remove if not needed)
+  # schedule:
+  #   - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout the PRIVATE repo's ui-mock branch ────────────────────
+      - name: Checkout POC_PhishGuard ui-mock branch
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.PRIVATE_REPO }}   # e.g. your-org/POC_PhishGuard
+          ref: ui-mock
+          token: ${{ secrets.PRIVATE_REPO_PAT }}     # PAT with read access to private repo
+          path: source
+
+      # ── 2. Setup Node ─────────────────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ── 3. Install pnpm ───────────────────────────────────────────────────
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      # ── 4. Install dependencies ───────────────────────────────────────────
+      - name: Install dependencies
+        working-directory: source/frontend
+        run: pnpm install --frozen-lockfile
+
+      # ── 5. Build static export ────────────────────────────────────────────
+      - name: Build Next.js static export
+        working-directory: source/frontend
+        env:
+          NODE_ENV: production
+        run: pnpm build
+
+      # ── 6. Add .nojekyll so GitHub Pages serves _next/ folder correctly ──
+      - name: Add .nojekyll
+        run: touch source/frontend/out/.nojekyll
+
+      # ── 7. Deploy to GitHub Pages (phisguard-ui-mock gh-pages branch) ────
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: source/frontend/out
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "chore: deploy ui-mock snapshot [${{ github.run_number }}]"
+
