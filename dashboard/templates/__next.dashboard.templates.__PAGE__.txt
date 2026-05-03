@@ -1,0 +1,9 @@
+1:"$Sreact.fragment"
+2:I[27834,["/phisguard-ui-mock/_next/static/chunks/3337476739009024.js","/phisguard-ui-mock/_next/static/chunks/1cf47ff80df39543.js"],"ClientPageRoot"]
+3:I[77808,["/phisguard-ui-mock/_next/static/chunks/eb3b9a71a9722fb0.js","/phisguard-ui-mock/_next/static/chunks/910940f1eff73773.js","/phisguard-ui-mock/_next/static/chunks/0196f0ed9efb7fb3.js","/phisguard-ui-mock/_next/static/chunks/3fe3c9f721187c87.js","/phisguard-ui-mock/_next/static/chunks/8cd3efa9c3019a0c.js","/phisguard-ui-mock/_next/static/chunks/c67d5b48904c69e8.js","/phisguard-ui-mock/_next/static/chunks/5e3294ecb11e4181.js"],"default"]
+6:I[89836,["/phisguard-ui-mock/_next/static/chunks/3337476739009024.js","/phisguard-ui-mock/_next/static/chunks/1cf47ff80df39543.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"buildId":"eP-NP9Qj5kV-hPOkkm3Ak","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/phisguard-ui-mock/_next/static/chunks/910940f1eff73773.js","async":true}],["$","script","script-1",{"src":"/phisguard-ui-mock/_next/static/chunks/0196f0ed9efb7fb3.js","async":true}],["$","script","script-2",{"src":"/phisguard-ui-mock/_next/static/chunks/3fe3c9f721187c87.js","async":true}],["$","script","script-3",{"src":"/phisguard-ui-mock/_next/static/chunks/8cd3efa9c3019a0c.js","async":true}],["$","script","script-4",{"src":"/phisguard-ui-mock/_next/static/chunks/c67d5b48904c69e8.js","async":true}],["$","script","script-5",{"src":"/phisguard-ui-mock/_next/static/chunks/5e3294ecb11e4181.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
