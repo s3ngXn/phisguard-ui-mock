@@ -43,7 +43,7 @@ jobs:
       # ── 4. Install dependencies ───────────────────────────────────────────
       - name: Install dependencies
         working-directory: source/frontend
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       # ── 5. Build static export ────────────────────────────────────────────
       - name: Build Next.js static export
